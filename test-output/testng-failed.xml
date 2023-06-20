@@ -6,7 +6,6 @@
       <class name="checkoutFunctionality.successfulCheckoutProcess">
         <methods>
           <include name="getDriver"/>
-          <include name="tearDown"/>
           <include name="test1"/>
         </methods>
       </class> <!-- checkoutFunctionality.successfulCheckoutProcess -->
