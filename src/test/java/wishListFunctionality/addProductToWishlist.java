@@ -22,7 +22,7 @@ public class addProductToWishlist extends commonMethods {
 		wp.heartIcon.click();
 		Assert.assertTrue(wp.successMessage.isDisplayed());
 		wp.wishListButton.click();
-		Assert.assertTrue(wp.productTable.isDisplayed());
+		wp.wishListItemValidation();
 	}
 
 }

@@ -9,7 +9,7 @@ import utilities.commonMethods;
 import utilities.configReader;
 import utilities.driver;
 
-public class wishListPage {
+public class wishListPage extends commonMethods{
 
 	public wishListPage() {
 
@@ -59,13 +59,21 @@ public class wishListPage {
 	@FindBy(xpath = "//*[@id=\"wishlist-total\"]")
 	public WebElement wishListButton;
 
-	@FindBy(xpath = "//*[@class='table-responsive']")
-	public WebElement productTable;   //*[@id=\"content\"]/div[1]/table
+	
+	@FindBy(xpath="//*[@id=\"content\"]/div[1]/table/tbody/tr/td[2]/a")
+	public WebElement itemName;
+	
 
 	@FindBy(xpath = "//td[contains(@class,'text-right')]/a")
 	public WebElement removeButton;
 
 	@FindBy(xpath = "//*[@id=\"account-wishlist\"]/div[1]")
 	public WebElement youHaveModifiedYourWishList;
+	
+	public void wishListItemValidation() {
+		String expectedItemName = "MacBook";
+		String actualItemName = wp.itemName.getText();
+		Assert.assertEquals(expectedItemName, actualItemName);
+	}
 
 }
