@@ -8,7 +8,11 @@
           <include name="addAnItemToShoppingCart"/>
           <include name="openBrowser"/>
           <include name="getDriver"/>
+<<<<<<< HEAD
+          <include name="test1"/>
+=======
           <include name="closeBrowser"/>
+>>>>>>> main
         </methods>
       </class> <!-- shoppingCartFunctionality.addItemToShoppingCart -->
     </classes>
