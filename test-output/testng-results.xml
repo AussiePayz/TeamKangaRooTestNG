@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-17T14:52:10 ACST" name="Default suite" finished-at="2023-06-17T14:52:23 ACST" duration-ms="12510">
+  <suite started-at="2023-06-21T19:22:13 ACST" name="Default suite" finished-at="2023-06-21T19:22:22 ACST" duration-ms="9593">
     <groups>
     </groups>
-    <test started-at="2023-06-17T14:52:10 ACST" name="Default test" finished-at="2023-06-17T14:52:23 ACST" duration-ms="12510">
-      <class name="checkoutFunctionality.successfulCheckoutProcess">
-        <test-method is-config="true" signature="getDriver()[pri:0, instance:checkoutFunctionality.successfulCheckoutProcess@158d2680]" started-at="2023-06-17T14:52:11 ACST" name="getDriver" finished-at="2023-06-17T14:52:23 ACST" duration-ms="11995" status="PASS">
+    <test started-at="2023-06-21T19:22:13 ACST" name="Default test" finished-at="2023-06-21T19:22:22 ACST" duration-ms="9593">
+      <class name="wishListFunctionality.verifyWishlistPersistence">
+        <test-method is-config="true" signature="getDriver()[pri:0, instance:wishListFunctionality.verifyWishlistPersistence@1a482e36]" started-at="2023-06-21T19:22:13 ACST" name="getDriver" finished-at="2023-06-21T19:22:17 ACST" duration-ms="3812" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getDriver -->
-        <test-method signature="test1()[pri:0, instance:checkoutFunctionality.successfulCheckoutProcess@158d2680]" started-at="2023-06-17T14:52:23 ACST" name="test1" finished-at="2023-06-17T14:52:23 ACST" duration-ms="144" status="PASS">
+        <test-method signature="test3()[pri:0, instance:wishListFunctionality.verifyWishlistPersistence@1a482e36]" started-at="2023-06-21T19:22:17 ACST" name="test3" finished-at="2023-06-21T19:22:22 ACST" duration-ms="5750" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test1 -->
-      </class> <!-- checkoutFunctionality.successfulCheckoutProcess -->
+        </test-method> <!-- test3 -->
+      </class> <!-- wishListFunctionality.verifyWishlistPersistence -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
