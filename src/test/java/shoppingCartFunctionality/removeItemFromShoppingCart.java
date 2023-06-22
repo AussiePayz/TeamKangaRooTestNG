@@ -7,21 +7,24 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import utilities.commonMethods;
 import utilities.configReader;
 import utilities.driver;
+import utilities.listenersTestNG;
 
-public class updateItemInShopingCart extends commonMethods {
-	
+@Listeners(listenersTestNG.class)
+public class removeItemFromShoppingCart extends commonMethods {
+
 	@BeforeTest(enabled = true)
 	public void openBrowser() {
 		driver.getDriver();
 	}
-	
-	@Test(enabled = true)
-	public void updateShoppingCart() {
+
+	@Test
+	public void deleteItemFromShoppingCart() {
 	scp.LoginWithValidCredentials();
 	Assert.assertEquals(commonMethods.currentURL(), configReader.getProperty("accountPage"));
 	scp.navigateToHomePageButton.click();
@@ -29,12 +32,13 @@ public class updateItemInShopingCart extends commonMethods {
 	scp.shoppingCartButton.click();
 	List<WebElement> list = driver.getDriver().findElements(By.xpath(scp.pageContainsItemXPath));
 	Assert.assertTrue(list.size() > 0, "Text not found!");
-	//store quantity into int
-	
-	scp.findByStringXpath(scp.pageContainsItemXPath).click();
-	Assert.assertEquals(commonMethods.currentURL(), configReader.getProperty("HTCTouchHDItemPage"));
-	scp.addNumberOfItemToShoppingCart("2");
-//	update saved
+	scp.deleteItemsFromShoppingCartButton.click();
+	commonMethods.wait(1);
+	list.clear();
+	list = driver.getDriver().findElements(By.xpath(scp.pageContainsItemXPath));
+	Assert.assertEquals(list.size(),0, "XPath still exists!");
+	String messageText = scp.getTextFromXpath(scp.containsEmptyShoppingCartMessageXPath);
+	Assert.assertEquals(messageText,"Your shopping cart is empty!", "Empty cart message not found!");
 	}
 
 	@AfterTest(enabled = false)
