@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="checkoutFunctionality.successfulCheckoutProcess">
+      <class name="wishListFunctionality.addProductToWishlist">
         <methods>
-          <include name="getDriver"/>
-          <include name="tearDown"/>
           <include name="test1"/>
+          <include name="getDriver"/>
         </methods>
-      </class> <!-- checkoutFunctionality.successfulCheckoutProcess -->
+      </class> <!-- wishListFunctionality.addProductToWishlist -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

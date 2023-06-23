@@ -13,7 +13,7 @@ import utilities.commonMethods;
 
 public class loginInvalidEmail extends commonMethods{
 	
-	//delete me
+	//Pari
 	private WebDriver driver;
 
     @BeforeMethod

@@ -29,6 +29,8 @@ public class commonMethods extends pageInitializer{
 		element.clear();
 		element.sendKeys(text);
 	}
+	
+	
 
 	public static void wait(int seconds) {
 		try {
@@ -228,7 +230,7 @@ public class commonMethods extends pageInitializer{
 	public static void doubleClick(WebElement element) {
 		Actions action = new Actions(driver.getDriver());
 		action.doubleClick(element).perform();
-		;
+		
 	}
 
 	public static String currentURL() {

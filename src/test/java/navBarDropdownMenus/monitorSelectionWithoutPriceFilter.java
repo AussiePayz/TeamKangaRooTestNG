@@ -1,15 +1,9 @@
 package navBarDropdownMenus;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import utilities.commonMethods;
 import utilities.driver;
 
@@ -26,7 +20,14 @@ public class monitorSelectionWithoutPriceFilter extends commonMethods {
 //		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.getDriver();
 	}
-
+	
+	
+	@AfterMethod(enabled = true)
+	public void closeBrowser() {
+		driver.tearDown();
+	}
+	
+	
 	@Test
 	public void openMonitorWithoutPriceFilter() {
 

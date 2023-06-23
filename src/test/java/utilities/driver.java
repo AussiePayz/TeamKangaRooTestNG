@@ -68,7 +68,7 @@ public class driver {
 	}
 
 	//@AfterMethod(alwaysRun = true)
-	public void tearDown() {
+	public static void tearDown() {
 
 		if (driver != null) {
 			driver.quit();

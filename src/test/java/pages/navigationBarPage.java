@@ -57,5 +57,14 @@ public class navigationBarPage {
 	@FindBy(xpath="//*[@alt='Apple Cinema 30\\\"']")
 	public WebElement AppleCinema;
 	
+	
+	
+	@FindBy(xpath="//h2[text()='Mac']")
+	public WebElement macText;
+	
+	
+	@FindBy(xpath="//*[text()='Show AllDesktops']")
+	public WebElement  showAllDesktopsText;
+	
 }
 
