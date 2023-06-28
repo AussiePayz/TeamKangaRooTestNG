@@ -24,11 +24,11 @@ public class navBarDropdownMenu extends commonMethods {
 	public void desktopsMenu() {
 		Assert.assertEquals(driver.getDriver().getCurrentUrl(), "https://tutorialsninja.com/demo/");
 		//driver.findElement(By.xpath("//*[text()='Desktops']")).click();
-		nbp.desktops.click();
+		nbp.desktopsInDropdownMenu.click();
 		// driver.findElement(By.xpath("//*[text()='Mac (1)']")).click();
 		// *[text()='Show AllDesktops']
 		Assert.assertTrue(nbp.showAllDesktopsText.isDisplayed());
-		nbp.mac.click();
+		nbp.macInDesktopMenu.click();
 		String expectedText = "Mac", actualText = nbp.macText.getText();
 		Assert.assertEquals(actualText, expectedText, "Text are not equal");
 

@@ -1,65 +1,36 @@
 package loginFunctionality;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import utilities.commonMethods;
+import utilities.configReader;
+import utilities.driver;
 
-public class loginInvalidPassword extends commonMethods{
-	
-	//Pari
-	 private WebDriver driver;
+public class loginInvalidPassword extends commonMethods {
 
-	    @BeforeMethod
-	    public void setup() {
-	       
-	        WebDriverManager.chromedriver().setup();
-	        driver = new ChromeDriver();
-	    }
-
-	   // @AfterMethod
-	    //public void tearDown() {
-	       
-	        //driver.quit();
-	   // }
-
-	    @Test
-	    public void testLogin() {
-	        
-	        driver.get("https://tutorialsninja.com/demo");
-
-	       
-	        WebElement myAccountButton = driver.findElement(By.xpath("//span[text()='My Account']"));
-	        myAccountButton.click();
-
-	        WebElement loginOption = driver.findElement(By.xpath("//a[text()='Login']"));
-	        loginOption.click();
-
-	        
-	        String validEmail = "tech@circle.com";
-	        driver.findElement(By.id("input-email")).sendKeys(validEmail);
-
-	        
-	        String invalidPassword = "asdasd";
-	        driver.findElement(By.id("input-password")).sendKeys(invalidPassword);
-
-	        
-	        WebElement loginButton = driver.findElement(By.xpath("//input[@type='submit' ]"));
-	        loginButton.click();
-
-	       
-	        String expectedErrorMessage = "Warning: No match for E-Mail Address and/or Password.";
-	        String actualErrorMessage = driver.findElement(By.cssSelector(".alert.alert-danger")).getText();
-	        Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
-	    }
-	    
-
+	@BeforeMethod
+	public void setup() {
+		driver.getDriver();
 	}
 
+	@Test
+	public void testLogin() {
+		lp.myAccountButton.click();
+		lp.loginOption.click();
+		lp.emailField.sendKeys(configReader.getProperty("validEmail"));
+		lp.passwordField.sendKeys(configReader.getProperty("invalidPassword"));
+		lp.loginButton.click();
+		String expectedErrorMessage = configReader.getProperty("ErrorMessage"),
+				actualErrorMessage = lp.actualErrorMessage.getText();
+		Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
+	}
 
+	@AfterMethod
+	public void closeBrowser() {
+		driver.tearDown();
+	}
+
+}
