@@ -6,8 +6,5 @@ public class constants {
     public static final int explicit_wait_time = 30;
     
     public static final String configProperty_filePath = "src/test/resources/propertiesFolder/configuration.properties";
-    
-    
-    
 
 }
