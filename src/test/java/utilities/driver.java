@@ -67,7 +67,7 @@ public class driver {
 		return driver;
 	}
 
-	//@AfterMethod(alwaysRun = true)
+	@AfterMethod(alwaysRun = true)
 	public static void tearDown() {
 
 		if (driver != null) {

@@ -50,8 +50,8 @@ public class wishListPage extends commonMethods{
 	@FindBy(xpath = "//*[@id=\"content\"]/div[2]")
 	public WebElement featuredContent;
 
-	@FindBy(xpath = "//*[@id=\"content\"]/div[2]/div[1]/div/div[3]/button[2]")
-	public WebElement heartIcon;
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div[2]/div[1]/button[1]")
+	public WebElement addToWishList;
 
 	@FindBy(xpath = "//div[contains(@class, 'alert alert-success alert-dismissible')]")
 	public WebElement successMessage;
@@ -60,8 +60,8 @@ public class wishListPage extends commonMethods{
 	public WebElement wishListButton;
 
 	
-	@FindBy(xpath="//*[@id=\"content\"]/div[1]/table/tbody/tr/td[2]/a")
-	public WebElement itemName;
+	@FindBy(xpath="//img[@title='iPhone']")
+	public WebElement itemName;//img[@alt='MacBook']
 	
 
 	@FindBy(xpath = "//td[contains(@class,'text-right')]/a")
@@ -70,10 +70,6 @@ public class wishListPage extends commonMethods{
 	@FindBy(xpath = "//*[@id=\"account-wishlist\"]/div[1]")
 	public WebElement youHaveModifiedYourWishList;
 	
-	public void wishListItemValidation() {
-		String expectedItemName = "MacBook";
-		String actualItemName = wp.itemName.getText();
-		Assert.assertEquals(expectedItemName, actualItemName);
-	}
+	
 
 }
