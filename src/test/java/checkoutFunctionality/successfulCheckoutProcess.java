@@ -5,10 +5,11 @@ import org.testng.annotations.Test;
 
 import utilities.commonMethods;
 import utilities.configReader;
+import utilities.retryAnalyzer;
 
 public class successfulCheckoutProcess extends commonMethods{
 	
-	@Test(enabled = true)
+	@Test(enabled = true, retryAnalyzer = retryAnalyzer.class)
 	public void test1() {
 		
 		cp.successfulLogin();
@@ -28,7 +29,7 @@ public class successfulCheckoutProcess extends commonMethods{
 		cp.confirmOrderButton.click();
 		Assert.assertTrue(cp.orderHasBeenPlacedHeader.isDisplayed());
 		cp.orderPageContinue.click();
-		
+	
 		
 	}
 	

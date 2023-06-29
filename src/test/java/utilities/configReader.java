@@ -18,9 +18,9 @@ public class configReader {
 		} catch (Exception e) {
 			e.printStackTrace(); 
 		
-		}//end of catch block
+		}
 
-	}//end of static block
+	}
 	
 	public static String getProperty(String keyName) {
 		
