@@ -9,7 +9,7 @@ import utilities.retryAnalyzer;
 
 public class incompleteCheckoutProcess extends commonMethods{
 	
-	@Test(retryAnalyzer = retryAnalyzer.class)
+	@Test(retryAnalyzer = retryAnalyzer.class, priority = 2)
 	public void test2() {
 		
 		cp.successfulLogin();

@@ -9,20 +9,21 @@ import utilities.retryAnalyzer;
 
 public class successfulCheckoutProcess extends commonMethods{
 	
-	@Test(enabled = true, retryAnalyzer = retryAnalyzer.class)
+	@Test(enabled = true, retryAnalyzer = retryAnalyzer.class, priority = 1)
 	public void test1() {
 		
 		cp.successfulLogin();
-		cp.phonePdaButton.click();
-		cp.htcButton.click();
+		cp.searchBar.sendKeys(configReader.getProperty("search"));
+		cp.searchBarEnter.click();
+		cp.ipodShuffle.click();
 		cp.addToCartButton.click();
 		Assert.assertTrue(cp.addToCartSuccessMessage.isDisplayed());
 		cp.checkoutButton.click();
 		Assert.assertTrue(cp.checkoutLogo.isDisplayed());
 		cp.addressContinue.click();
+		cp.deliveryContinue.click();
 		cp.shippingContinue.click();
 		cp.commentArea.sendKeys(configReader.getProperty("commentTest"));
-		cp.deliveryContinue.click();
 		cp.termsAndConditionsCheckBox.click();
 		cp.paymentContinue.click();
 		Assert.assertTrue(cp.paymentContinue.isDisplayed());

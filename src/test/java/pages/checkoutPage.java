@@ -33,6 +33,9 @@ public class checkoutPage extends commonMethods{
 	@FindBy(xpath = "//a[@href='https://tutorialsninja.com/demo/index.php?route=common/home']")
 	public WebElement homeButton;
 	
+	@FindBy(xpath = "//img[@src=\"https://tutorialsninja.com/demo/image/cache/catalog/demo/ipod_shuffle_1-228x228.jpg\"]")
+	public WebElement ipodShuffle;
+	
 	@FindBy(xpath = "//*[@id=\"menu\"]/div[2]/ul/li[6]/a")
 	public WebElement phonePdaButton;
 	

@@ -10,7 +10,7 @@ import utilities.retryAnalyzer;
 public class guestUserCheckout extends commonMethods{
 	
 	
-	@Test//(retryAnalyzer = retryAnalyzer.class)
+	@Test(retryAnalyzer = retryAnalyzer.class, priority = 3)
 	public void test3() {
 		
 		cp.searchBar.sendKeys(configReader.getProperty("search"));
