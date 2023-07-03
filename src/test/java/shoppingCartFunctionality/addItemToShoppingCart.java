@@ -5,8 +5,6 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -17,11 +15,6 @@ import utilities.driver;
 
 @Listeners(listenersTestNG.class)
 public class addItemToShoppingCart extends commonMethods {
-
-	@BeforeTest(enabled = true)
-	public void openBrowser() {
-		driver.getDriver();
-	}
 
 	@Test(enabled = true)
 	public void addAnItemToShoppingCart() {
@@ -37,11 +30,6 @@ public class addItemToShoppingCart extends commonMethods {
 		scp.shoppingCartButton.click();
 		List<WebElement> list = driver.getDriver().findElements(By.xpath(scp.pageContainsItemXPath));
 		Assert.assertTrue(list.size() > 0, "Text not found!");
-	}
-
-	@AfterTest(enabled = true)
-	public void closeBrowser() {
-		driver.tearDown();
 	}
 
 }

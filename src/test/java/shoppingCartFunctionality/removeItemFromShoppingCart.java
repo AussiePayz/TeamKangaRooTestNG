@@ -5,8 +5,6 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -17,11 +15,6 @@ import utilities.listenersTestNG;
 
 @Listeners(listenersTestNG.class)
 public class removeItemFromShoppingCart extends commonMethods {
-
-	@BeforeTest(enabled = true)
-	public void openBrowser() {
-		driver.getDriver();
-	}
 
 	@Test
 	public void deleteItemFromShoppingCart() {
@@ -41,8 +34,4 @@ public class removeItemFromShoppingCart extends commonMethods {
 	Assert.assertEquals(messageText,"Your shopping cart is empty!", "Empty cart message not found!");
 	}
 
-	@AfterTest(enabled = false)
-	public void closeBrowser() {
-		driver.tearDown();
-	}
 }
