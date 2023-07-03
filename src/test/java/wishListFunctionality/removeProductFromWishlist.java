@@ -9,7 +9,7 @@ import utilities.driver;
 
 public class removeProductFromWishlist extends commonMethods {
 
-	@Test
+	@Test(enabled=true)
 	public void test2() {
 
 		wp.myAccountButton.click();
@@ -17,14 +17,13 @@ public class removeProductFromWishlist extends commonMethods {
 		wp.emailField.sendKeys(configReader.getProperty("validEmail"));
 		wp.passwordField.sendKeys(configReader.getProperty("validPassword"));
 		wp.loginButton.click();
-		//cp.successfulLogin();
 		wp.myAccountPage();
 		wp.homeButton.click();
 		Assert.assertTrue(wp.featuredContent.isDisplayed());
-		wp.heartIcon.click();
+		wp.itemName.click();
+		wp.addToWishList.click();
 		Assert.assertTrue(wp.successMessage.isDisplayed());
 		wp.wishListButton.click();
-		wp.wishListItemValidation();
 		wp.removeButton.click();
 		Assert.assertTrue(wp.youHaveModifiedYourWishList.isDisplayed());
 

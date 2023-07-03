@@ -2,6 +2,7 @@ package utilities;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -66,7 +67,7 @@ public class driver {
 		return driver;
 	}
 
-	//@AfterMethod(alwaysRun = true)
+	@AfterMethod(alwaysRun = true)
 	public static void tearDown() {
 
 		if (driver != null) {
@@ -74,5 +75,8 @@ public class driver {
 			driver = null;
 		}
 	}
+
+	
+	
 
 }

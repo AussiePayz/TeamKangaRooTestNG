@@ -4,10 +4,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import utilities.commonMethods;
+import utilities.configReader;
+import utilities.retryAnalyzer;
 
 public class incompleteCheckoutProcess extends commonMethods{
 	
-	@Test
+	@Test(retryAnalyzer = retryAnalyzer.class, priority = 2)
 	public void test2() {
 		
 		cp.successfulLogin();
@@ -18,6 +20,13 @@ public class incompleteCheckoutProcess extends commonMethods{
 		Assert.assertTrue(cp.addToCartSuccessMessage.isDisplayed());
 		cp.checkoutButton.click();
 		Assert.assertTrue(cp.checkoutLogo.isDisplayed());
+		cp.addressContinue.click();
+		cp.deliveryContinue.click();
+		cp.commentArea.sendKeys(configReader.getProperty("commentTest"));
+		cp.shippingContinue.click();
+		cp.paymentContinue.click();
+		Assert.assertTrue(cp.termsAndConditionsErrorMessage.isDisplayed());
+		
 		
 	}
 
