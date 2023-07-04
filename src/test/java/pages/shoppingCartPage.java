@@ -56,6 +56,9 @@ public class shoppingCartPage extends commonMethods {
 
 	@FindBy(xpath = "//div[@class='col-sm-12']/p")
 	public WebElement containsEmptyShoppingCartMessageXPath;
+	
+	@FindBy(xpath = "//div[@class='input-group btn-block']/input")
+	public WebElement amountOfFirstItemInShoppingCart;
 
 	public String pageContainsItemXPath = "(//a[contains(text(),'" + configReader.getProperty("searchItem") + "')])[2]";
 
@@ -68,43 +71,37 @@ public class shoppingCartPage extends commonMethods {
 		String messageText = XPathWithTextInIt.getText();
 		return messageText;
 	}
+	public int getNumberFromString(String messageText) {
+		int number = Integer.parseInt(messageText);
+		return number;
+	}
+	
 
 	public void LoginWithValidCredentials() {
 //		  click on "My Account" button
 		scp.MyAccount.click();
-//		driver.getDriver().findElement(By.xpath("//*[@title='My Account']")).click(); //commonMethod selectDropDownValue
 //		  click on "Login " button
 		scp.MyAccountLogin.click();
-//		driver.getDriver().findElement(By.xpath("//*[@href=\"https://tutorialsninja.com/demo/index.php?route=account/login\"]")).click(); // commonMethod selectDropDownValue
 //		  enter valid credentials
-//		driver.getDriver().findElement(By.xpath("//input[@name='email']")).sendKeys(configReader.getProperty("validEmail")); // email input
 		scp.emailField.sendKeys(configReader.getProperty("validEmail"));
-//		driver.getDriver().findElement(By.xpath("//input[@name='password']")).sendKeys(configReader.getProperty("validPassword")); // password input
 		scp.passwordField.sendKeys(configReader.getProperty("validPassword"));
 //		  click login button
-//		driver.getDriver().findElement(By.xpath("//input[@type='submit']")).click(); //login button
 //		  home page open up
 		scp.loginButton.click();
-//		String expectedURL = "https://tutorialsninja.com/demo/index.php?route=account/account"; //URL after logging in account page
-//		String actualURL = driver.getDriver().getCurrentUrl();
 	}
 
 	public void SearchItem(String item) {
 //		  click on search bar
-//		driver.getDriver().findElement(By.xpath("//input[@name='search']")).sendKeys("HTC"); //search bar
 		scp.searchBar.sendKeys(item);
-//		driver.getDriver().findElement(By.xpath("//button[@class='btn btn-default btn-lg']")).click(); //search button
 		scp.searchButton.click();
 	}
 
 	public void addNumberOfItemToShoppingCart(String number) {
 //		  click on quantity Bar
-//		driver.getDriver().findElement(By.xpath("//input[@name='quantity']")).clear();
 		scp.quantityBar.clear();
-//		driver.getDriver().findElement(By.xpath("//input[@name='quantity']")).sendKeys("2");//quantity bar//changes quantity to 2
+//		  choose amount to add
 		scp.quantityBar.sendKeys(number);
 //		  click on "Add To Shopping Cart"
-//		driver.getDriver().findElement(By.xpath("//button[@id='button-cart']")).click();//add to cart button// clicks add to cart
 		scp.addToCartButton.click();
 	}
 

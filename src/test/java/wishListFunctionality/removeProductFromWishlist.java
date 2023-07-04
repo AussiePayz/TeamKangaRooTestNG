@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 
 import utilities.commonMethods;
 import utilities.configReader;
-import utilities.driver;
 
 public class removeProductFromWishlist extends commonMethods {
 
