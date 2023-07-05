@@ -9,7 +9,7 @@ import utilities.retryAnalyzer;
 
 public class successfulCheckoutProcess extends commonMethods{
 	
-	@Test(enabled = true, retryAnalyzer = retryAnalyzer.class, priority = 1)
+	@Test(enabled = true, retryAnalyzer = retryAnalyzer.class, groups = "smokeTest")
 	public void test1() {
 		
 		cp.successfulLogin();

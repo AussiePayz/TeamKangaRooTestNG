@@ -16,7 +16,7 @@ import utilities.driver;
 @Listeners(listenersTestNG.class)
 public class addItemToShoppingCart extends commonMethods {
 
-	@Test(enabled = true)
+	@Test(enabled = true, groups = "smokeTest")
 	public void addAnItemToShoppingCart() {
 		scp.LoginWithValidCredentials();
 		Assert.assertEquals(commonMethods.currentURL(), configReader.getProperty("accountPage"));

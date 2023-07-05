@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+	  
+	  <groups>
+			<run>
+				<include name="smokeTest" />
+			</run>
+		</groups>
+    <classes>
+      <class name="registrationFunctionality.registerExistingEmailAddress"/>
+      <class name="navBarDropdownMenus.nameAZoptionInSortbyDropdown"/>
+      <class name="wishListFunctionality.removeProductFromWishlist"/>
+      <class name="loginFunctionality.successfulLogin"/>
+      <class name="loginFunctionality.loginInvalidEmail"/>
+      <class name="loginFunctionality.accountLockout"/>
+      <class name="registrationFunctionality.registerInvalidCredentials"/>
+      <class name="wishListFunctionality.verifyWishlistPersistence"/>
+      <class name="checkoutFunctionality.guestUserCheckout"/>
+      <class name="brandsFunctionality.verifyDescriptionInBrandspage"/>
+      <class name="loginFunctionality.loginEmptyCredentials"/>
+      <class name="checkoutFunctionality.successfulCheckoutProcess"/>
+      <class name="loginFunctionality.forgotPasswordFunctionality"/>
+      <class name="brandsFunctionality.openBrandsPage"/>
+      <class name="navBarDropdownMenus.monitorSelectionWithoutPriceFilter"/>
+      <class name="checkoutFunctionality.incompleteCheckoutProcess"/>
+      <class name="navBarDropdownMenus.navBarDropdownMenu"/>
+      <class name="utilities.driver"/>
+      <class name="SearchBarFunctionality.singleClickSearch"/>
+      <class name="registrationFunctionality.Registration"/>
+      <class name="SearchBarFunctionality.searchWithDoubleClick"/>
+      <class name="SearchBarFunctionality.searchUsingEnterKey"/>
+      <class name="wishListFunctionality.addProductToWishlist"/>
+      <class name="shoppingCartFunctionality.updateItemInShopingCart"/>
+      <class name="brandsFunctionality.verifyingFilter"/>
+      <class name="shoppingCartFunctionality.removeItemFromShoppingCart"/>
+      <class name="shoppingCartFunctionality.addItemToShoppingCart"/>
+      <class name="SearchBarFunctionality.searchWithEmptySearchBar"/>
+      <class name="loginFunctionality.loginInvalidPassword"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
