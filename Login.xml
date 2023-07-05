@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="loginFunctionality.successfulLogin"/>
+      <class name="loginFunctionality.loginInvalidEmail"/>
+      <class name="loginFunctionality.loginEmptyCredentials"/>
+      <class name="loginFunctionality.accountLockout"/>
+      <class name="loginFunctionality.forgotPasswordFunctionality"/>
+      <class name="loginFunctionality.loginInvalidPassword"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
