@@ -7,7 +7,7 @@ import utilities.configReader;
 
 public class Registration extends commonMethods {
 
-	@Test
+	@Test(enabled = true, groups = "smokeTest")
 	public void test1() {
 
 		rp.myaccount.click();

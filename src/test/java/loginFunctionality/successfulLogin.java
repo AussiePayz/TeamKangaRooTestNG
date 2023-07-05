@@ -9,7 +9,7 @@ import utilities.driver;
 
 public class successfulLogin extends commonMethods {
 
-	@Test
+	@Test(enabled = true, groups = "smokeTest")
 	public void testLogin() {
 		lp.myAccountButton.click();
 		lp.loginOption.click();

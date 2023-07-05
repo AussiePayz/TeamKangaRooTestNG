@@ -208,6 +208,9 @@ public class checkoutPage extends commonMethods{
 	@FindBy(xpath = "//*[contains(@ class,'btn btn-primary')]")
 	public WebElement contactUsContinue;
 	
+	@FindBy(xpath = "//*[@id=\"content\"]/p[2]/a")
+	public WebElement storeOwnerButton;
+	
 	
 	}
 	
