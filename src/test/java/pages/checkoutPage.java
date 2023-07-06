@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import utilities.commonMethods;
 import utilities.configReader;
@@ -29,8 +30,11 @@ public class checkoutPage extends commonMethods{
 	@FindBy(xpath = "//input[contains(@type,'submit')]")
 	public WebElement loginButton;
 	
-	@FindBy(xpath = "//i[contains(@class,'fa fa-home')]")
+	@FindBy(xpath = "//a[@href='https://tutorialsninja.com/demo/index.php?route=common/home']")
 	public WebElement homeButton;
+	
+	@FindBy(xpath = "//img[@src=\"https://tutorialsninja.com/demo/image/cache/catalog/demo/ipod_shuffle_1-228x228.jpg\"]")
+	public WebElement ipodShuffle;
 	
 	@FindBy(xpath = "//*[@id=\"menu\"]/div[2]/ul/li[6]/a")
 	public WebElement phonePdaButton;
@@ -50,19 +54,19 @@ public class checkoutPage extends commonMethods{
 	@FindBy(xpath = "//*[@id=\"content\"]/h1")
 	public WebElement checkoutLogo;
 	
-	@FindBy(xpath = "//*[@id=\"button-shipping-address\"]")
+	@FindBy(xpath = "//*[@id=\"button-shipping-method\"]")
 	public WebElement shippingContinue;
 	
 	@FindBy(xpath = "//textarea[@name=\"comment\"]")
 	public WebElement commentArea;
 	
-	@FindBy(xpath = "//*[@id=\"button-shipping-method\"]")
+	@FindBy(xpath = "//*[@id=\"button-shipping-address\"]")
 	public WebElement deliveryContinue;
 	
 	@FindBy(xpath = "//input[@name=\"agree\"]")
 	public WebElement termsAndConditionsCheckBox;
 	
-	@FindBy(xpath = "//input[@id=\"button-payment-method\"]")
+	@FindBy(xpath = "//input[contains(@id,'button-payment-method')]")
 	public WebElement paymentContinue;
 	
 	@FindBy(xpath = "//div[@class=\"panel-body\"]")
@@ -92,13 +96,128 @@ public class checkoutPage extends commonMethods{
 	@FindBy(xpath = "//*[@id=\"menu\"]/div[2]/ul/li[2]/div/a")
 	public WebElement showAllLaptopsOption;
 	
-	@FindBy(xpath = "//img[@alt=\"HP LP3065\"]")
+	@FindBy(xpath = "//*[@id=\"content\"]/div[4]/div[1]/div/div[1]/a/img")
 	public WebElement hp3065Image;
 	
 	@FindBy(xpath = "//div[@class=\"alert alert-success alert-dismissible\"]")
 	public WebElement addToCartSuccessMessage;
-
+	
+	@FindBy(xpath = "//div[@class=\"alert alert-danger alert-dismissible\"]")
+	public WebElement termsAndConditionsErrorMessage;
 	
 	
+	@FindBy(xpath = "//input[contains(@name,'search')]")
+	public WebElement searchBar;
+	
+	@FindBy(xpath = "//*[@class=\"btn btn-default btn-lg\"]")
+	public WebElement searchBarEnter;
+	
+	@FindBy(xpath = "//img[contains(@src,'https://tutorialsninja.com/demo/image/cache/catalog/demo/macbook_1-228x228.jpg')]")
+	public WebElement macBookItem;
+	
+	public void checkoutPageAssertion() {
+		String expectedResult = configReader.getProperty("checkoutExpectedResult");
+		String actualResult = getTitle();
+		Assert.assertEquals(expectedResult, actualResult);
+	}
+	@FindBy(xpath = "//input[contains(@value,'guest')]")
+	public WebElement guestUserCheckBox;
+	
+	@FindBy(xpath = "//*[@id=\"button-account\"]")
+	public WebElement checkoutContinue;
+	
+	@FindBy(xpath = "//*[@id=\"accordion\"]/div[2]/div[1]/h4/a")
+	public WebElement billingDetailsField;
+	
+	@FindBy(xpath = "//input[contains(@name,'firstname')]")
+	public WebElement firstNameField;
+	
+	@FindBy(xpath = "//input[contains(@name,'lastname')]")
+	public WebElement lastNameField;
+	
+	@FindBy(xpath = "//*[@id=\"input-payment-email\"]")
+	public WebElement emailField;
+	
+	@FindBy(xpath = "//input[contains(@name,'telephone')]")
+	public WebElement telephoneField;
+	
+	@FindBy(xpath = "//*[@id=\"input-payment-address-1\"]")
+	public WebElement addressField;
+	
+	@FindBy(xpath = "//input[contains(@name,'city')]")
+	public WebElement cityField;
+	
+	@FindBy(xpath = "//input[contains(@name,'postcode')]")
+	public WebElement postCodeField;
+	
+	@FindBy(xpath = "//*[@id=\"input-payment-country\"]")
+	public WebElement countryDropDown;
+	
+	@FindBy(xpath = "//*[@id=\"input-payment-zone\"]")
+	public WebElement regionDropDown;
+	
+	@FindBy(xpath = "//*[@id=\"button-guest\"]")
+	public WebElement billingDetailsContinue;
+	
+	@FindBy(xpath = "//*[@class=\"alert alert-warning alert-dismissible\"]")
+	public WebElement noPaymentMethodErrorMessage;
+	
+	@FindBy(xpath = "//*[@href=\"https://tutorialsninja.com/demo/index.php?route=information/contact\"]  ")
+	public WebElement contactUsLink;
+	
+	public void AssertionOfContactUsPage() {
+		
+		String expectedUrl = configReader.getProperty("ContactUsExpectedURL");
+		String actualUrl = driver.getDriver().getCurrentUrl();
+		
+		Assert.assertEquals(expectedUrl, actualUrl);
+	}
+	
+	@FindBy(xpath = "//*[contains(@ id,'input-name')]")
+	public WebElement contactUsNameField;
+	
+	@FindBy(xpath = "//*[contains(@ id,'input-email')]")
+	public WebElement contactUsEmail;
+	
+	@FindBy(xpath = "//*[contains(@ id,'input-enquiry')]")
+	public WebElement contactUsEnquiryField;
+	
+	@FindBy(xpath = "//*[contains(@ type,'submit')]")
+	public WebElement contactUsSubmitButton;
+	
+	@FindBy(xpath = "//*[contains(@ id,'content')]/h1")
+	public WebElement contactUsHeader;
+	
+	public void contactUsPageAssertion() {
+		
+		String expectedText = "Contact Us";
+		String actualText = cp.contactUsHeader.getText();
+		
+		Assert.assertEquals(expectedText, actualText);
+		
+	}
+	
+	public void homePageAssertion() {
+		
+		String expectedTitle = configReader.getProperty("homePageTitle");
+		String actualTitle = getTitle();
+		
+		Assert.assertEquals(expectedTitle, actualTitle);
+	}
+	
+	@FindBy(xpath = "//*[contains(@ class,'btn btn-primary')]")
+	public WebElement contactUsContinue;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/p[2]/a")
+	public WebElement storeOwnerButton;
+	
+	
+	}
+	
+	
+	
+	
+	
 
-}
+
+

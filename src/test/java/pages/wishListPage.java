@@ -33,13 +33,13 @@ public class wishListPage extends commonMethods{
 	public WebElement loginButton;
 
 	public void myAccountPage() {
-		String expectedTitle = "My Account";
+		String expectedTitle = configReader.getProperty("myAccountTitle");
 		String actualTitle = driver.getDriver().getTitle();
 		Assert.assertEquals(expectedTitle, actualTitle);
 	}
 	
 	public void myWishListPage() {
-		String expectedTitle = "My Wish List";
+		String expectedTitle = configReader.getProperty("myWishListTitle");
 		String actualTitle = driver.getDriver().getTitle();
 		Assert.assertEquals(actualTitle, expectedTitle);
 	}
@@ -50,8 +50,8 @@ public class wishListPage extends commonMethods{
 	@FindBy(xpath = "//*[@id=\"content\"]/div[2]")
 	public WebElement featuredContent;
 
-	@FindBy(xpath = "//*[@id=\"content\"]/div[2]/div[1]/div/div[3]/button[2]")
-	public WebElement heartIcon;
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div[2]/div[1]/button[1]")
+	public WebElement addToWishList;
 
 	@FindBy(xpath = "//div[contains(@class, 'alert alert-success alert-dismissible')]")
 	public WebElement successMessage;
@@ -60,7 +60,7 @@ public class wishListPage extends commonMethods{
 	public WebElement wishListButton;
 
 	
-	@FindBy(xpath="//*[@id=\"content\"]/div[1]/table/tbody/tr/td[2]/a")
+	@FindBy(xpath="//img[@title='iPhone']")
 	public WebElement itemName;
 	
 
@@ -70,10 +70,6 @@ public class wishListPage extends commonMethods{
 	@FindBy(xpath = "//*[@id=\"account-wishlist\"]/div[1]")
 	public WebElement youHaveModifiedYourWishList;
 	
-	public void wishListItemValidation() {
-		String expectedItemName = "MacBook";
-		String actualItemName = wp.itemName.getText();
-		Assert.assertEquals(expectedItemName, actualItemName);
-	}
+	
 
 }

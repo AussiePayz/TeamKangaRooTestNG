@@ -5,12 +5,9 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import pages.shoppingCartPage;
 import utilities.listenersTestNG;
 import utilities.commonMethods;
 import utilities.configReader;
@@ -19,27 +16,20 @@ import utilities.driver;
 @Listeners(listenersTestNG.class)
 public class addItemToShoppingCart extends commonMethods {
 
-	@BeforeTest(enabled = true)
-	public void openBrowser() {
-		driver.getDriver();
-	}
-
-	@Test(enabled = true)
+	@Test(enabled = true, groups = "smokeTest")
 	public void addAnItemToShoppingCart() {
-		shoppingCartPage.LoginWithValidCredentials();
-		Assert.assertEquals(commonMethods.currentURL(),configReader.getProperty("accountPage"));
-		shoppingCartPage.SearchItem("HTC Touch HD");
+		scp.LoginWithValidCredentials();
+		Assert.assertEquals(currentURL(), configReader.getProperty("accountPage"));
+		scp.navigateToHomePageButton.click();
+		Assert.assertEquals(currentURL(), configReader.getProperty("homePage"));
+		scp.SearchItem(configReader.getProperty("searchItem"));
+		String messageText = scp.getTextFromXpath(scp.firstItemThumbnail);
+		Assert.assertEquals(messageText,configReader.getProperty("searchItem"), "Item searched for not found!");
 		scp.firstItemThumbnail.click();
-		shoppingCartPage.addNumberOfItemToShoppingCart("2");
+		scp.addNumberOfItemToShoppingCart("2");
 		scp.shoppingCartButton.click();
-		List<WebElement> list = driver.getDriver().findElements(By.xpath("//a[contains(text(),'"+"HTC Touch HD"+"')]"));
-		Assert.assertTrue(list.size() > 0, "Text not found!"); 
-		scp.deleteItemsFromShoppingCartButton.click();
-	}
-
-	@AfterTest(enabled = true)
-	public void closeBrowser() {
-		driver.tearDown();
+		List<WebElement> list = driver.getDriver().findElements(By.xpath(scp.pageContainsItemXPath));
+		Assert.assertTrue(list.size() > 0, "Text not found!");
 	}
 
 }

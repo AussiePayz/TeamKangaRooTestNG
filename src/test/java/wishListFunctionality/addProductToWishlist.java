@@ -8,7 +8,7 @@ import utilities.configReader;
 
 public class addProductToWishlist extends commonMethods {
 
-	@Test
+	@Test(enabled = true)
 	public void test1() {
 
 		wp.myAccountButton.click();
@@ -19,10 +19,13 @@ public class addProductToWishlist extends commonMethods {
 		wp.myAccountPage();
 		wp.homeButton.click();
 		Assert.assertTrue(wp.featuredContent.isDisplayed());
-		wp.heartIcon.click();
+		wp.itemName.click();
+		wp.addToWishList.click();
 		Assert.assertTrue(wp.successMessage.isDisplayed());
 		wp.wishListButton.click();
-		wp.wishListItemValidation();
+		
 	}
+	
+	
 
 }

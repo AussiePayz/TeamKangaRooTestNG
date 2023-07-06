@@ -3,10 +3,12 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import com.github.javafaker.Faker;
 
+import utilities.commonMethods;
 import utilities.driver;
 
-public class registrationPage {
+public class registrationPage extends commonMethods {
 	
 	public registrationPage() {
 		
@@ -29,6 +31,13 @@ public class registrationPage {
 	
 	@FindBy(xpath="//*[contains(@id, 'account')]/div[4]/div/input")	
 	public WebElement email;
+	
+	public void newEmailGeneration() {
+	    Faker faker = new Faker();
+	    String newEmail = faker.internet().emailAddress();
+	    rp.email.sendKeys(newEmail);
+
+	}
 	
 	@FindBy(xpath="//input[@id=\"input-telephone\"]")	
 	public WebElement telephone;
