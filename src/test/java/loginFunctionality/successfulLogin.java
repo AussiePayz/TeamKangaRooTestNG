@@ -13,11 +13,11 @@ public class successfulLogin extends commonMethods {
 	public void testLogin() {
 		lp.myAccountButton.click();
 		lp.loginOption.click();
-		lp.emailField.sendKeys("tech@circle.com");
-		lp.passwordField.sendKeys("Selenium123!");
+		lp.emailField.sendKeys(configReader.getProperty("validEmail"));
+		lp.passwordField.sendKeys(configReader.getProperty("validPassword"));
 		lp.loginButton.click();
 		String expectedRedirectUrl = configReader.getProperty("accountPage"),
-				actualRedirectUrl = driver.getDriver().getCurrentUrl();
+				actualRedirectUrl = currentURL();
 		Assert.assertEquals(actualRedirectUrl, expectedRedirectUrl, "User was not redirected to the correct page");
 	}
 

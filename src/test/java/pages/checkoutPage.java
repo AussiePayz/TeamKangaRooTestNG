@@ -116,7 +116,7 @@ public class checkoutPage extends commonMethods{
 	public WebElement macBookItem;
 	
 	public void checkoutPageAssertion() {
-		String expectedResult = "Checkout";
+		String expectedResult = configReader.getProperty("checkoutExpectedResult");
 		String actualResult = getTitle();
 		Assert.assertEquals(expectedResult, actualResult);
 	}
@@ -167,7 +167,7 @@ public class checkoutPage extends commonMethods{
 	
 	public void AssertionOfContactUsPage() {
 		
-		String expectedUrl = "https://tutorialsninja.com/demo/index.php?route=information/contact";
+		String expectedUrl = configReader.getProperty("ContactUsExpectedURL");
 		String actualUrl = driver.getDriver().getCurrentUrl();
 		
 		Assert.assertEquals(expectedUrl, actualUrl);
@@ -199,7 +199,7 @@ public class checkoutPage extends commonMethods{
 	
 	public void homePageAssertion() {
 		
-		String expectedTitle = "Your Store";
+		String expectedTitle = configReader.getProperty("homePageTitle");
 		String actualTitle = getTitle();
 		
 		Assert.assertEquals(expectedTitle, actualTitle);

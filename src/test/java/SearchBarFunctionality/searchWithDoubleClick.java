@@ -13,11 +13,11 @@ public class searchWithDoubleClick extends commonMethods {
 	@Test(enabled = true)
 	public void searchByUsingSearchButton() throws InterruptedException {
 		sbp.searchBar.click();
-		sbp.searchBar.sendKeys("HTC Touch");
+		sbp.searchBar.sendKeys(configReader.getProperty("searchItem"));
 		Actions actions = new Actions(driver.getDriver());
 		actions.doubleClick(sbp.searchButton).perform();
 		sbp.firstItemThumbnail.click();
-		Assert.assertEquals(commonMethods.currentURL(), configReader.getProperty("itemPage"));
+		Assert.assertEquals(currentURL(), configReader.getProperty("itemPage"));
 	}
 
 }

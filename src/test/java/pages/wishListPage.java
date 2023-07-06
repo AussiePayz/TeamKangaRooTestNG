@@ -33,13 +33,13 @@ public class wishListPage extends commonMethods{
 	public WebElement loginButton;
 
 	public void myAccountPage() {
-		String expectedTitle = "My Account";
+		String expectedTitle = configReader.getProperty("myAccountTitle");
 		String actualTitle = driver.getDriver().getTitle();
 		Assert.assertEquals(expectedTitle, actualTitle);
 	}
 	
 	public void myWishListPage() {
-		String expectedTitle = "My Wish List";
+		String expectedTitle = configReader.getProperty("myWishListTitle");
 		String actualTitle = driver.getDriver().getTitle();
 		Assert.assertEquals(actualTitle, expectedTitle);
 	}
@@ -61,7 +61,7 @@ public class wishListPage extends commonMethods{
 
 	
 	@FindBy(xpath="//img[@title='iPhone']")
-	public WebElement itemName;//img[@alt='MacBook']
+	public WebElement itemName;
 	
 
 	@FindBy(xpath = "//td[contains(@class,'text-right')]/a")

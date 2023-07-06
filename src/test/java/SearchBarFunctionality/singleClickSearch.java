@@ -11,10 +11,10 @@ public class singleClickSearch extends commonMethods{
 	@Test(enabled = true)
 	public void searchByUsingSearchButton() {
 		sbp.searchBar.click();
-		sbp.searchBar.sendKeys("HTC Touch");
+		sbp.searchBar.sendKeys(configReader.getProperty("searchItem"));
 		sbp.searchButton.click();
 		sbp.firstItemThumbnail.click();
-		Assert.assertEquals(commonMethods.currentURL(), configReader.getProperty("itemPage"));
+		Assert.assertEquals(currentURL(), configReader.getProperty("itemPage"));
 	}
 
 }
