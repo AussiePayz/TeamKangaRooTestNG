@@ -11,7 +11,7 @@ public class monitorSelectionWithoutPriceFilter extends commonMethods {
 
 	@Test(enabled = true)
 	public void openMonitorWithoutPriceFilter() {
-		Assert.assertEquals(currentURL(), configReader.getProperty("validPassword"));
+		Assert.assertEquals(currentURL(), configReader.getProperty("url"));
 		nbp.ComponentsDropdownMenu.click();
 		nbp.MonitorsInComponentsMenu.click();
 		String expectedText = configReader.getProperty("monitorExpectedResult"), actualText = nbp.monitorsText.getText();
