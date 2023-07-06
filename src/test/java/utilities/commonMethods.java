@@ -16,22 +16,28 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
-public class commonMethods extends pageInitializer{
-	
+import io.github.bonigarcia.wdm.WebDriverManager;
 
+public class commonMethods extends pageInitializer {
+
+	//Send keys
 	public static void sendKeys(WebElement element, String text) {
 		element.clear();
 		element.sendKeys(text);
 	}
+	//-----------------------------------------------------------//
 	
-	
-
+	//Thread Sleep wait
 	public static void wait(int seconds) {
 		try {
 			Thread.sleep(seconds * 1000);
@@ -39,7 +45,9 @@ public class commonMethods extends pageInitializer{
 			System.out.println(e);
 		}
 	}
-
+	//------------------------------------------------------------------//
+	
+	// Click RadioButton or CheckBox 
 	public static void clickRadioOrCheckbox(List<WebElement> radioOrCheckbox, String value) {
 		String actualValue;
 
@@ -54,7 +62,9 @@ public class commonMethods extends pageInitializer{
 		}
 
 	}
-
+	//-------------------------------------------------------------------------//
+	
+	//Click Radio or CheckBox Text
 	public static void clickRadioOrCheckboxText(List<WebElement> radioOrCheckbox, String value) {
 		String actualValue;
 
@@ -68,9 +78,10 @@ public class commonMethods extends pageInitializer{
 			}
 		}
 	}
-
-	// select dropdown value
-
+//-----------------------------------------------------------------------------------
+	
+	
+	// select Static dropdown by value
 	public static void selectDropDownValue(WebElement element, String textToSelect) {
 
 		try {
@@ -89,8 +100,9 @@ public class commonMethods extends pageInitializer{
 			e.printStackTrace();
 		}
 	}
+	//--------------------------------------------------------------//
 
-	// select dropdown by index
+	// select Static dropdown by index
 	public static void selectDropDownIndex(WebElement element, int indexValue) {
 
 		try {
@@ -106,7 +118,17 @@ public class commonMethods extends pageInitializer{
 		}
 
 	}
+	//-----------------------------------------------------------------//
+	
+	// select drop down by text
+		public static void selectOptionByVisibleText(WebElement dropdown, String optionText) {
+			Select select = new Select(dropdown);
+			select.selectByVisibleText(optionText);
 
+		}
+	//-------------------------------------------------------------------//
+		
+		
 	// alert accept
 	public static void acceptAlert() {
 		try {
@@ -116,7 +138,8 @@ public class commonMethods extends pageInitializer{
 			e.printStackTrace();
 		}
 	}
-
+	//-------------------------------------------------------------------------//
+	
 	// alert dismiss
 	public static void dismissAlert() {
 		try {
@@ -140,7 +163,9 @@ public class commonMethods extends pageInitializer{
 		return alertText;
 
 	}
-
+	//--------------------------------------------------------------------//
+	
+	// Switch to Iframe by index
 	public static void switchToIframeByIndex(WebElement element, int index) {
 		try {
 			driver.getDriver().switchTo().defaultContent();
@@ -155,7 +180,9 @@ public class commonMethods extends pageInitializer{
 
 		}
 	}
-
+	//-------------------------------------------------------------------------//
+	
+	//Switch to Iframe by element
 	public static void switchToIframeByElement(WebElement element) {
 		try {
 			driver.getDriver().switchTo().defaultContent();
@@ -167,7 +194,9 @@ public class commonMethods extends pageInitializer{
 
 		}
 	}
-
+	//-------------------------------------------------------------------------//
+	
+	//Switch to Iframe By name
 	public static void switchToIframeByName(String iframeName) {
 		driver.getDriver().switchTo().defaultContent();
 
@@ -179,7 +208,9 @@ public class commonMethods extends pageInitializer{
 
 		}
 	}
-
+	//--------------------------------------------------------------------------//
+	
+	// Switch to child window
 	public static void switchToChildWindow(String parentWindow) {
 
 		Set<String> windowHandles = driver.getDriver().getWindowHandles();
@@ -192,93 +223,113 @@ public class commonMethods extends pageInitializer{
 		}
 
 	}
-
+	//------------------------------------------------------------------//
+	
+	//WebDriver wait object
 	public static WebDriverWait getWaitObject() {
 		WebDriverWait wait = new WebDriverWait(driver.getDriver(), 30);
 		return wait;
 	}
-
+	//---------------------------------------------------------------------//
+	
+	//Explicit Wait for clickability
 	public static WebElement waitForClickability(WebElement element) {
 		return getWaitObject().until(ExpectedConditions.elementToBeClickable(element));
 	}
-
+	//-----------------------------------------------------------------------//
+	
+	//Explicit wait for visibility
 	public static WebElement waitForVisibility(WebElement element) {
 		return getWaitObject().until(ExpectedConditions.visibilityOf(element));
 
 	}
-
+	//----------------------------------------------------------------------------//
+	
+	// wait for visibility and click
 	public static void click(WebElement element) {
 		waitForVisibility(element).click();
 	}
-
+	//----------------------------------------------------------------------//
+	
+	// wait for visibility and send keys
 	public void sendKeys(String Keys, WebElement element) {
 		waitForVisibility(element).sendKeys(Keys);
 	}
-
+	//-----------------------------------------------------------------//
+	
+	//hover over mouse
 	public static void hoverOverMouse(WebElement element) {
 		Actions action = new Actions(driver.getDriver());
 		action.moveToElement(element).build().perform();
 
 	}
-
+	//-------------------------------------------------------------------//
+	
+	// drag and drop
 	public static void dragAndDrop(WebElement element1, WebElement element2) {
 		Actions action = new Actions(driver.getDriver());
 		action.dragAndDrop(element1, element2).build().perform();
 		;
 	}
-
+	//------------------------------------------------------------------//
+	
+	// double click
 	public static void doubleClick(WebElement element) {
 		Actions action = new Actions(driver.getDriver());
 		action.doubleClick(element).perform();
-		
-	}
 
+	}
+	//-----------------------------------------------------------------//
+	
+	// get current URL
 	public static String currentURL() {
 		return driver.getDriver().getCurrentUrl();
 	}
-
+	//--------------------------------------------------------------------//
+	
+	// refresh the page
 	public static void refresh() {
 		driver.getDriver().navigate().refresh();
 	}
-
+	//------------------------------------------------------------------//
+	
+	// get title
 	public static String getTitle() {
 		return driver.getDriver().getTitle();
 	}
+	//--------------------------------------------------------------------//
+	
 
+	// navigate back
 	public static void navigateBack() {
 		driver.getDriver().navigate().back();
 	}
+	//---------------------------------------------------------------------//
 	
-	 public static void selectOptionByVisibleText(WebElement dropdown, String optionText) {
-	        Select select = new Select(dropdown);
-	        select.selectByVisibleText(optionText);
-	    
+	
+	// take a screen shot
+	public static void takeScreenshot(WebDriver driver) throws IOException {
+		// Create object of SimpleDateFormat class and decide the format
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss");
+
+		// get the current date time with LocalDateTime
+		LocalDateTime now = LocalDateTime.now();
+
+		// Convert the date into the string with the specified format
+		String dateString = now.format(formatter);
+
+		// Casting WebDriver to TakeScreenshot
+		TakesScreenshot screenshot = (TakesScreenshot) driver;
+
+		// Get the screenshot as an output file
+		File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
+
+		// Define the destination path with the unique name
+		String destFilePath = "target/screenshot_" + dateString + ".png";
+		File destFile = new File(destFilePath);
+
+		// Use FileUtils to copy the screenshot to the destination
+		FileUtils.copyFile(srcFile, destFile);
 	}
-	 public static void takeScreenshot(WebDriver driver) throws IOException {
-		    // Create object of SimpleDateFormat class and decide the format
-		    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss");
 
-		    // get the current date time with LocalDateTime
-		    LocalDateTime now = LocalDateTime.now();
-
-		    // Convert the date into the string with the specified format
-		    String dateString = now.format(formatter);
-		    
-		    // Casting WebDriver to TakeScreenshot
-		    TakesScreenshot screenshot = (TakesScreenshot) driver;
-
-		    // Get the screenshot as an output file
-		    File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
-
-		    // Define the destination path with the unique name
-		    String destFilePath = "target/screenshot_" + dateString + ".png";
-		    File destFile = new File(destFilePath);
-
-		    // Use FileUtils to copy the screenshot to the destination
-		    FileUtils.copyFile(srcFile, destFile);
-		}
 }
-
-
-
-

@@ -1,17 +1,21 @@
 package checkoutFunctionality;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import utilities.commonMethods;
 import utilities.configReader;
+
 import utilities.retryAnalyzer;
 
-public class successfulCheckoutProcess extends commonMethods{
-	
+public class successfulCheckoutProcess extends commonMethods {
+
 	@Test(enabled = true, retryAnalyzer = retryAnalyzer.class, groups = "smokeTest")
+
 	public void test1() {
-		
+
 		cp.successfulLogin();
 		cp.searchBar.sendKeys(configReader.getProperty("search"));
 		cp.searchBarEnter.click();
@@ -30,17 +34,7 @@ public class successfulCheckoutProcess extends commonMethods{
 		cp.confirmOrderButton.click();
 		Assert.assertTrue(cp.orderHasBeenPlacedHeader.isDisplayed());
 		cp.orderPageContinue.click();
-	
-		
-	}
-	
-	
-	
+
 	}
 
-
-	
-	
-	
-
-
+}
