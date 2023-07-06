@@ -13,10 +13,10 @@ public class searchUsingEnterKey extends commonMethods {
 	@Test(enabled = true)
 	public void searchByUsingEnterKey() {
 		sbp.searchBar.click();
-		sbp.searchBar.sendKeys("HTC Touch");
+		sbp.searchBar.sendKeys(configReader.getProperty("searchItem"));
 		sbp.searchBar.sendKeys(Keys.RETURN);
 		sbp.firstItemThumbnail.click();
-		Assert.assertEquals(commonMethods.currentURL(), configReader.getProperty("itemPage"));
+		Assert.assertEquals(currentURL(), configReader.getProperty("itemPage"));
 	}
 
 }

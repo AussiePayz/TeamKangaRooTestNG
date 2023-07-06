@@ -12,10 +12,10 @@ public class nameAZoptionInSortbyDropdown extends commonMethods {
 	@Test
 
 	public void nameAZ() {
-		Assert.assertEquals(driver.getDriver().getCurrentUrl(), "https://tutorialsninja.com/demo/");
+		Assert.assertEquals(currentURL(), configReader.getProperty("url"));
 		nbp.ComponentsDropdownMenu.click();
 		nbp.MonitorsInComponentsMenu.click();
-		String expectedText = "Monitors", actualText = nbp.monitorsText.getText();
+		String expectedText = configReader.getProperty("monitorExpectedResult"), actualText = nbp.monitorsText.getText();
 		Assert.assertEquals(actualText, expectedText, "Text are not equal");
 		nbp.sortByDropDownMenu.click();
 		nbp.nameAZInDropDownMenu.click();

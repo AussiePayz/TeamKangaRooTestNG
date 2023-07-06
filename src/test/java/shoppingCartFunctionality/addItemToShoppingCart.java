@@ -19,9 +19,9 @@ public class addItemToShoppingCart extends commonMethods {
 	@Test(enabled = true, groups = "smokeTest")
 	public void addAnItemToShoppingCart() {
 		scp.LoginWithValidCredentials();
-		Assert.assertEquals(commonMethods.currentURL(), configReader.getProperty("accountPage"));
+		Assert.assertEquals(currentURL(), configReader.getProperty("accountPage"));
 		scp.navigateToHomePageButton.click();
-		Assert.assertEquals(commonMethods.currentURL(), configReader.getProperty("homePage"));
+		Assert.assertEquals(currentURL(), configReader.getProperty("homePage"));
 		scp.SearchItem(configReader.getProperty("searchItem"));
 		String messageText = scp.getTextFromXpath(scp.firstItemThumbnail);
 		Assert.assertEquals(messageText,configReader.getProperty("searchItem"), "Item searched for not found!");

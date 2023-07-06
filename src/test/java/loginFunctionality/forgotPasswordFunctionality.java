@@ -15,7 +15,7 @@ public class forgotPasswordFunctionality extends commonMethods {
 		lp.loginOption.click();
 		lp.ForgetPasswordButton.click();
 		String expectedTitle = configReader.getProperty("forgotPassword"),
-				actualTitle = driver.getDriver().getTitle();
+				actualTitle = getTitle();
 		Assert.assertEquals(actualTitle, expectedTitle);
 		lp.ForgetPasswordEmail.sendKeys(configReader.getProperty("validEmail"));
 		lp.ContinueButton.click();

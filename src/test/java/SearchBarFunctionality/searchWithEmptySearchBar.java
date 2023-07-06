@@ -12,7 +12,7 @@ public class searchWithEmptySearchBar extends commonMethods {
 	@Test(enabled = true)
 	public void searchByUsingEnterKey() {
 		sbp.searchBar.click();
-		sbp.searchBar.sendKeys("");
+		sbp.searchBar.sendKeys(configReader.getProperty("searchItem"));
 		sbp.searchBar.sendKeys(Keys.RETURN);
 		String pageMessageText = sbp.pageMessage.getText();
 		Assert.assertEquals(pageMessageText, configReader.getProperty("emptySearchMessage"));

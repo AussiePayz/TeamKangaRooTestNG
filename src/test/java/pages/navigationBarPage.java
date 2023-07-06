@@ -9,6 +9,8 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import utilities.configReader;
 import utilities.driver;
 
 public class navigationBarPage {
@@ -17,8 +19,6 @@ public class navigationBarPage {
 
 		PageFactory.initElements(driver.getDriver(), this);
 	}
-//	driver.findElement(By.xpath("//*[text()='Desktops']")).click();
-//	driver.findElement(By.xpath("//*[text()='Mac (1)']")).click();
 
 	@FindBy(xpath = "//*[text()='Desktops']")
 	public WebElement desktopsInDropdownMenu;
@@ -26,10 +26,6 @@ public class navigationBarPage {
 	@FindBy(xpath = "//*[text()='Mac (1)']")
 	public WebElement macInDesktopMenu;
 
-//	driver.findElement(By.xpath("//*[@class='dropdown'] /*[text()='Components']")).click();
-//	driver.findElement(By.xpath("//*[text()='Monitors (2)']")).click();
-//	driver.findElement(By.xpath("//*[@id='input-sort']")).click();
-//	driver.findElement(By.xpath("//*[text()='Name (A - Z)']")).click();
 
 	@FindBy(xpath = "//*[@id='input-sort']")
 	public WebElement sortByDropDownMenu;

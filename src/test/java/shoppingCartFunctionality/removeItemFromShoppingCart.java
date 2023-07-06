@@ -19,19 +19,19 @@ public class removeItemFromShoppingCart extends commonMethods {
 	@Test
 	public void deleteItemFromShoppingCart() {
 	scp.LoginWithValidCredentials();
-	Assert.assertEquals(commonMethods.currentURL(), configReader.getProperty("accountPage"));
+	Assert.assertEquals(currentURL(), configReader.getProperty("accountPage"));
 	scp.navigateToHomePageButton.click();
-	Assert.assertEquals(commonMethods.currentURL(), configReader.getProperty("homePage"));
+	Assert.assertEquals(currentURL(), configReader.getProperty("homePage"));
 	scp.shoppingCartButton.click();
 	List<WebElement> list = driver.getDriver().findElements(By.xpath(scp.pageContainsItemXPath));
 	Assert.assertTrue(list.size() > 0, "Text not found!");
 	scp.deleteItemsFromShoppingCartButton.click();
-	commonMethods.wait(1);
+	wait(1);
 	list.clear();
 	list = driver.getDriver().findElements(By.xpath(scp.pageContainsItemXPath));
 	Assert.assertEquals(list.size(),0, "XPath still exists!");
 	String messageText = scp.getTextFromXpath(scp.containsEmptyShoppingCartMessageXPath);
-	Assert.assertEquals(messageText,"Your shopping cart is empty!", "Empty cart message not found!");
+	Assert.assertEquals(messageText,configReader.getProperty("emptyShoppingCartMessage"), "Empty cart message not found!");
 	}
 
 }

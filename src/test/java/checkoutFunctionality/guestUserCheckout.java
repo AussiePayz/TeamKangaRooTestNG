@@ -46,10 +46,7 @@ public class guestUserCheckout extends commonMethods{
 		cp.contactUsContinue.click();
 		cp.homePageAssertion();
 		
-		
-		
-		
-		
+	
 		
 	}
 

@@ -11,7 +11,7 @@ public class navBarDropdownMenu extends commonMethods {
 
 	@Test(enabled = true)
 	public void desktopsMenu() {
-		Assert.assertEquals(driver.getDriver().getCurrentUrl(), configReader.getProperty("url"));
+		Assert.assertEquals(currentURL(), configReader.getProperty("url"));
 		
 		nbp.desktopsInDropdownMenu.click();
 		
@@ -19,7 +19,7 @@ public class navBarDropdownMenu extends commonMethods {
 		
 		nbp.macInDesktopMenu.click();
 		
-		String expectedText = "Mac", actualText = nbp.macText.getText();
+		String expectedText = configReader.getProperty("macExpextedResult"), actualText = nbp.macText.getText();
 		
 		Assert.assertEquals(actualText, expectedText, "Text are not equal");
 
