@@ -10,7 +10,9 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -18,7 +20,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class driver {
 
 	private static WebDriver driver;
-
+	
 	@BeforeMethod(alwaysRun = true)
 	public static WebDriver getDriver() {
 
@@ -65,7 +67,8 @@ public class driver {
 
 		return driver;
 	}
-
+	
+	
 	@AfterMethod(alwaysRun = true)
 	public static void tearDown() {
 

@@ -115,11 +115,6 @@ public class checkoutPage extends commonMethods{
 	@FindBy(xpath = "//img[contains(@src,'https://tutorialsninja.com/demo/image/cache/catalog/demo/macbook_1-228x228.jpg')]")
 	public WebElement macBookItem;
 	
-	public void checkoutPageAssertion() {
-		String expectedResult = configReader.getProperty("checkoutExpectedResult");
-		String actualResult = getTitle();
-		Assert.assertEquals(expectedResult, actualResult);
-	}
 	@FindBy(xpath = "//input[contains(@value,'guest')]")
 	public WebElement guestUserCheckBox;
 	
@@ -165,14 +160,6 @@ public class checkoutPage extends commonMethods{
 	@FindBy(xpath = "//*[@href=\"https://tutorialsninja.com/demo/index.php?route=information/contact\"]  ")
 	public WebElement contactUsLink;
 	
-	public void AssertionOfContactUsPage() {
-		
-		String expectedUrl = configReader.getProperty("ContactUsExpectedURL");
-		String actualUrl = driver.getDriver().getCurrentUrl();
-		
-		Assert.assertEquals(expectedUrl, actualUrl);
-	}
-	
 	@FindBy(xpath = "//*[contains(@ id,'input-name')]")
 	public WebElement contactUsNameField;
 	
@@ -188,22 +175,6 @@ public class checkoutPage extends commonMethods{
 	@FindBy(xpath = "//*[contains(@ id,'content')]/h1")
 	public WebElement contactUsHeader;
 	
-	public void contactUsPageAssertion() {
-		
-		String expectedText = "Contact Us";
-		String actualText = cp.contactUsHeader.getText();
-		
-		Assert.assertEquals(expectedText, actualText);
-		
-	}
-	
-	public void homePageAssertion() {
-		
-		String expectedTitle = configReader.getProperty("homePageTitle");
-		String actualTitle = getTitle();
-		
-		Assert.assertEquals(expectedTitle, actualTitle);
-	}
 	
 	@FindBy(xpath = "//*[contains(@ class,'btn btn-primary')]")
 	public WebElement contactUsContinue;

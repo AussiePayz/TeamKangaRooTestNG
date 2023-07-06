@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import utilities.commonMethods;
 import utilities.configReader;
+import utilities.driver;
 import utilities.retryAnalyzer;
 
 public class guestUserCheckout extends commonMethods{
@@ -18,7 +19,9 @@ public class guestUserCheckout extends commonMethods{
 		cp.ipodShuffle.click();
 		cp.addToCartButton.click();
 		cp.checkoutButton.click();
-		cp.checkoutPageAssertion();
+		String expectedResult = configReader.getProperty("checkoutExpectedResult");
+		String actualResult = getTitle();
+		Assert.assertEquals(expectedResult, actualResult);
 		cp.guestUserCheckBox.click();
 		cp.checkoutContinue.click();
 		cp.billingDetailsField.click();
@@ -37,14 +40,20 @@ public class guestUserCheckout extends commonMethods{
 		cp.paymentContinue.click();
 		cp.confirmOrderButton.click();
 		cp.storeOwnerButton.click();
-		cp.AssertionOfContactUsPage();
+		String expectedUrl = configReader.getProperty("ContactUsExpectedURL");
+		String actualUrl = driver.getDriver().getCurrentUrl();
+		Assert.assertEquals(expectedUrl, actualUrl);
 		cp.contactUsNameField.sendKeys(configReader.getProperty("contactUsName"));
 		cp.contactUsEmail.sendKeys(configReader.getProperty("email"));
 		cp.contactUsEnquiryField.sendKeys(configReader.getProperty("contactUsEnquiry"));
 		cp.contactUsSubmitButton.click();
-		cp.contactUsPageAssertion();
+		String expectedText = "Contact Us";
+		String actualText = cp.contactUsHeader.getText();
+		Assert.assertEquals(expectedText, actualText);
 		cp.contactUsContinue.click();
-		cp.homePageAssertion();
+		String expectedTitle = configReader.getProperty("homePageTitle");
+		String actualTitle = getTitle();
+		Assert.assertEquals(expectedTitle, actualTitle);
 		
 	
 		
