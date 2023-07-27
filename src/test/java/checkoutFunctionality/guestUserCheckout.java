@@ -47,7 +47,7 @@ public class guestUserCheckout extends commonMethods{
 		cp.contactUsEmail.sendKeys(configReader.getProperty("email"));
 		cp.contactUsEnquiryField.sendKeys(configReader.getProperty("contactUsEnquiry"));
 		cp.contactUsSubmitButton.click();
-		String expectedText = "Contact Us";
+		String expectedText = configReader.getProperty("contactUsExpectedText");
 		String actualText = cp.contactUsHeader.getText();
 		Assert.assertEquals(expectedText, actualText);
 		cp.contactUsContinue.click();
